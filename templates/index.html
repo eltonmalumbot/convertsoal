@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#f5f7fb"/>
+<title>Moodle Question Studio — DOCX ke Moodle XML</title>
+<link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/" aria-label="Beranda Moodle Question Studio"><span class="brand-mark">M<span>·</span></span><span>Moodle <b>Question Studio</b></span></a><div class="head-right"><span class="tagline">Word to Moodle, made simple</span><span class="beta">BETA · v0.1</span></div></header>
+<main class="page">
+<section class="hero">
+  <div class="hero-copy"><span class="eyebrow"><span class="dot"></span> KONVERTER BANK SOAL MOODLE</span><h1>Dari file soal ke Moodle,<br><em>tanpa mengetik ulang.</em></h1><p>Unggah Word atau Moodle XML, periksa setiap soal dan kunci jawaban, lalu ekspor dalam format yang cocok untuk Question Bank Moodle.</p><div class="hero-benefits"><span>✓ Soal campuran</span><span>✓ Pemeriksaan kunci</span><span>✓ Gambar &amp; tabel</span></div></div>
+  <aside class="hero-side"><div class="flow-title">ALUR KERJA</div><div class="step"><span>01</span><div><b>Unggah dokumen</b><small>DOCX · Moodle XML · CSV</small></div></div><div class="connector"></div><div class="step"><span>02</span><div><b>Pratinjau &amp; koreksi</b><small>Jenis soal, opsi, dan kunci</small></div></div><div class="connector"></div><div class="step"><span>03</span><div><b>Unduh hasil</b><small>XML · GIFT · Aiken · CSV</small></div></div></aside>
+</section>
+<section class="upload-wrap" id="upload-panel"><div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Klik atau seret dokumen ke sini"><div class="upload-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V3m0 0-4 4m4-4 4 4"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-4v-4"/></svg></div><b>Seret file soal Anda ke sini</b><p>atau <span class="link-look">pilih dari komputer</span></p><small>DOCX, XML, atau CSV · Maks. 3,8 MB · Dokumen diproses sementara, tanpa penyimpanan permanen</small><input id="file-input" type="file" accept=".docx,.xml,.csv" hidden/></div><div class="upload-footer"><div class="safe-note"><span class="safe-icon">◎</span><span>Belum perlu akses akun, server, atau token Moodle.</span></div><button id="demo-btn" class="link-btn">Coba data contoh <span>↗</span></button></div></section>
+<section class="workspace" id="workspace" hidden><div class="workspace-head"><div><div class="section-label">WORKSPACE</div><h2>Periksa hasil konversi</h2><p id="source-line">Pilih soal untuk melihat dan mengedit isinya.</p></div><button class="secondary" id="new-file-btn">+ Unggah file lain</button></div>
+ <div class="metrics"><div class="metric"><span>Total soal</span><b id="count-total">0</b></div><div class="metric"><span>Siap diekspor</span><b id="count-ready" class="teal">0</b></div><div class="metric"><span>Perlu diperiksa</span><b id="count-review" class="coral">0</b></div><div class="metric"><span>Tipe soal</span><b id="count-types">0</b></div></div>
+ <div id="warnings" class="notice" hidden></div>
+ <div class="workspace-grid"><aside class="question-list-panel"><div class="list-head"><b>Daftar soal</b><span id="list-counter"></span></div><div class="filter-row"><input id="search" type="search" placeholder="Cari soal…" aria-label="Cari soal"/><select id="status-filter" aria-label="Filter status"><option value="all">Semua</option><option value="ready">Siap</option><option value="review">Perlu review</option></select></div><div id="question-list" class="question-list"></div></aside>
+ <section class="editor-panel"><div id="editor-empty" class="empty-state">Pilih soal di sebelah kiri.</div><div id="editor" hidden></div></section></div>
+ <div class="export-panel"><div class="export-info"><div class="section-label">EXPORT CENTER</div><h3>Siap masuk ke Moodle?</h3><p>Moodle XML paling lengkap untuk pilihan ganda, esai, gambar, dan tabel. Format GIFT/Aiken hanya untuk tipe yang didukung.</p><label for="category">Kategori soal Moodle</label><input id="category" type="text" value="Bank Soal" maxlength="100"/></div><div class="export-controls"><label for="format">Format keluaran</label><select id="format"><option value="xml">Moodle XML (.xml) — direkomendasikan</option><option value="gift">GIFT (.txt)</option><option value="aiken">Aiken (.txt) — pilihan tunggal</option><option value="csv">CSV (.csv) — arsip / edit ulang</option></select><button id="export-btn" class="primary">↓ Unduh hasil konversi</button><small>XML akan diblokir jika ada soal dengan kunci jawaban yang belum lengkap. CSV bisa dipakai untuk menyimpan draf.</small></div></div>
+</section>
+<section class="howto"><div class="section-label">SETELAH KONVERSI</div><h2>Cara impor ke Moodle</h2><div class="how-grid"><div><span class="how-number">1</span><b>Buka course</b><p>Masuk sebagai guru atau pengelola course Moodle.</p></div><div><span class="how-number">2</span><b>Masuk Question bank</b><p>Pilih <strong>More → Question bank → Import</strong> sesuai navigasi Moodle Anda.</p></div><div><span class="how-number">3</span><b>Pilih Moodle XML</b><p>Unggah file XML hasil konversi dan tinjau daftar soal setelah impor.</p></div></div></section>
+</main><footer>© Moodle Question Studio · Alat bantu independen, bukan produk resmi Moodle. <span>Periksa hasil sebelum digunakan dalam asesmen.</span></footer>
+<div class="toast" id="toast" role="alert" hidden></div>
+<script src="/static/app.js"></script>
+</body></html>

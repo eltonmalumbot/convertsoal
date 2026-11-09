@@ -1,0 +1,15 @@
+# Keep Vercel Function bundle compact; public assets are deployed separately.
+tests/
+.pytest_cache/
+.venv/
+__pycache__/
+Dockerfile
+.dockerignore
+start_windows.bat
+start_linux.sh
+QA_REPORT.md
+*.zip
+*.docx
+*.xml
+.env
+.env.*
